@@ -1,14 +1,12 @@
-import { combineReducers } from 'redux';
-import auth from './reducers/auth';
-import tweet from './reducers/tweet';
-import profile from './reducers/profile';
-import social from './reducers/social';
+import { combineReducers } from 'redux'
+import auth from './reducers/auth'
+import profile from './reducers/profile'
+import hackers from './reducers/hackers'
 
 const rootReducer = combineReducers({
 	auth,
-	tweet,
-	social,
 	profile,
-});
+	hackers,
+})
 
-export default rootReducer;
+export default rootReducer
