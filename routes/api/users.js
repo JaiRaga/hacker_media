@@ -5,9 +5,52 @@ const router = express.Router()
 
 router.post('/register', async (req, res) => {
 	console.log('inComing', req.body)
-	const user = new User(req.body)
+	const challengesSolved = Math.floor(Math.random() * 1000)
+	const solutionsSubmitted = Math.floor(Math.random() * 3000) + 500
+	const solutionsAccepted = Math.floor(Math.random() * 500)
+	const dataStructures = Math.floor(Math.random() * 100)
+	const algorithms = Math.floor(Math.random() * 100)
+	const cpp = Math.floor(Math.random() * 100)
+	const java = Math.floor(Math.random() * 100)
+	const python = Math.floor(Math.random() * 100)
+	const html = Math.floor(Math.random() * 100)
+	const javascript = Math.floor(Math.random() * 100)
+
+	const user = new User({
+		...req.body,
+		challengesSolved,
+		solutionsAccepted,
+		solutionsSubmitted,
+	})
+
+	const competitivePercentile = {
+		dataStructures,
+		algorithms,
+		cpp,
+		java,
+		python,
+		html,
+		javascript,
+	}
+
+	user.competitivePercentile.push(competitivePercentile)
+
+	let rank = solutionsAccepted / solutionsSubmitted
+	rank +=
+		(dataStructures + algorithms + cpp + java + python + html + javascript) /
+		700
+	user.percentile = parseFloat((rank * 100).toFixed(2))
 
 	try {
+		const users = await User.find({})
+		const ranks = []
+		users.forEach((user) => ranks.push(user.percentile))
+		console.log('**********RANKS**********', ranks)
+		ranks.push(user.percentile)
+		const overallRank = ranks.sort().indexOf(user.percentile)
+
+		user.overallRank = overallRank + 1
+
 		await user.save()
 		const token = await user.generateAuthToken()
 		console.log('updated', user)
