@@ -86,7 +86,7 @@ const Navbar = () => {
 							<DomainIcon />
 						</IconButton>
 						<Typography variant='h5' className={classes.title}>
-							HM
+							Hacker Media
 						</Typography>
 						<Hidden only={['xs', 'sm']}>
 							{isAuthenticated ? authLinks : guestLinks}

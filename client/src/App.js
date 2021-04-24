@@ -12,6 +12,7 @@ import Landing from './components/landing/Landing'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Home from './components/home/Home'
+import Profile from './components/profile/Profile'
 
 // Redux
 import store from './redux/store'
@@ -45,8 +46,8 @@ function App() {
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/Login' component={Login} />
 						<PrivateRoute exact path='/home' component={Home} />
-						{/* <PrivateRoute exact path='/profile' component={ProfileContainer} />
-						<PrivateRoute exact path='/profile/:id' component={Profile} /> */}
+						<PrivateRoute exact path='/profile/:id' component={Profile} />
+						{/* <PrivateRoute exact path='/profile/:id' component={Profile} /> */}
 						{/* <PrivateRoute exact path='/profiles' component={Profiles} />
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 						<PrivateRoute

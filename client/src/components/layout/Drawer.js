@@ -275,7 +275,7 @@ export default function SwipeableTemporaryDrawer() {
 							<DehazeIcon />
 						</IconButton>
 						<Typography variant='h5' className={classes.heading}>
-							Lak
+							Hacker Media
 						</Typography>
 						<SwipeableDrawer
 							anchor={'left'}

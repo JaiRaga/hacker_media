@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	name: {
 		marginLeft: 10,
-		textTransform: 'captilaize',
+		textTransform: 'capitalize',
 	},
 }))
 
 const HackerItem = ({ hacker }) => {
 	const classes = useStyles()
 	const history = useHistory()
-	const userId = '123'
+	const userId = hacker._id
 	return (
 		<Paper
 			className={classes.container}
