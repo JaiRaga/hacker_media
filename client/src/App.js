@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 // Routes
-// import PrivateRoute from './components/routing/PrivateRoute'
+import PrivateRoute from './components/routing/PrivateRoute'
 
 // Components imported for Routes
+import Navbar from './components/layout/Navbar'
+import Drawer from './components/layout/Drawer'
 import Landing from './components/landing/Landing'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Home from './components/home/Home'
 
 // Redux
 import store from './redux/store'
 import { loadUser } from './redux/actions/auth'
-import { getAllTweets, getTweetsByMe } from './redux/actions/tweet'
 
 // utils
 import setAuthToken from './utils/setAuthToken'
@@ -34,15 +36,18 @@ function App() {
 	return (
 		<Provider store={store}>
 			<Router>
+				<Navbar />
+				<Drawer />
 				<Fragment>
 					<Route exact path='/' component={Landing} />
 
 					<Switch>
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/Login' component={Login} />
+						<PrivateRoute exact path='/home' component={Home} />
 						{/* <PrivateRoute exact path='/profile' component={ProfileContainer} />
-						<PrivateRoute exact path='/profile/:id' component={Profile} />
-						<PrivateRoute exact path='/profiles' component={Profiles} />
+						<PrivateRoute exact path='/profile/:id' component={Profile} /> */}
+						{/* <PrivateRoute exact path='/profiles' component={Profiles} />
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 						<PrivateRoute
 							exact
