@@ -7,15 +7,8 @@ import Login from '../auth/Login'
 const Landing = () => {
 	return (
 		<Fragment>
-			<Hidden only={['xs', 'sm']}>
-				<Navbar />
-			</Hidden>
-			<Hidden only={['md', 'lg', 'xl']}>
-				<Drawer />
-			</Hidden>
-
-			<Grid container>
-				<Login />
+			<Grid container justify='center' alignItems='center'>
+				<h4>Welcome to Hacker Media</h4>
 			</Grid>
 		</Fragment>
 	)
