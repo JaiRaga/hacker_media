@@ -43,6 +43,17 @@ router.get('/user/:id', auth, async (req, res) => {
 	}
 })
 
+// Get all Users
+router.get('/users', async (req, res) => {
+	try {
+		const users = await User.find({})
+		if (!users) return res.status(404).send('No Users Found')
+		res.send(users)
+	} catch (err) {
+		res.status(500).send('Server error')
+	}
+})
+
 // Update User Profile
 router.patch('/user', auth, async (req, res) => {
 	try {
