@@ -14,7 +14,6 @@ const userSchema = new Schema(
 		avatar: { type: String },
 		profileLink: {
 			type: String,
-			required: true,
 			unique: true,
 		},
 		location: {
@@ -24,10 +23,22 @@ const userSchema = new Schema(
 		education: { type: String },
 		challengesSolved: { type: Number },
 		solutionsSubmitted: { type: Number },
-		solutionAccepted: { type: Number },
+		solutionsAccepted: { type: Number },
 		overallRank: { type: Number },
+		percentile: { type: Number },
 		numberOfVotes: { type: Number },
 		deviceType: { type: String },
+		competitivePercentile: [
+			{
+				dataStructures: Number,
+				algorithms: Number,
+				cpp: Number,
+				java: Number,
+				python: Number,
+				html: Number,
+				javascript: Number,
+			},
+		],
 		email: {
 			type: String,
 			required: true,
@@ -153,8 +164,24 @@ userSchema.statics.findByCredentials = async (email, password) => {
 	return user
 }
 
+userSchema.statics.calculateRank = async () => {
+	const users = await User.find({})
+
+	if (!users) return 1
+
+	const ranks = []
+	users.forEach((user) => {
+		ranks.push(user.percentile)
+	})
+
+	console.log('ranks***', ranks)
+
+	return ranks
+}
+
 userSchema.pre('save', async function (next) {
 	const user = this
+	user.profileLink = `/api/profile/${user._id}`
 
 	if (user.isModified('password')) {
 		user.password = await bcrypt.hash(user.password, 8)
