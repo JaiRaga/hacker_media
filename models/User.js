@@ -12,9 +12,10 @@ const userSchema = new Schema(
 			required: true,
 		},
 		avatar: { type: String },
-		profilelink: {
+		profileLink: {
 			type: String,
 			required: true,
+			unique: true,
 		},
 		location: {
 			type: String,
