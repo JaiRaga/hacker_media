@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#312c51',
 	},
 	icons: {
-		color: '#fff',
+		color: '#000',
 		minWidth: '35px',
 		paddingRight: 20,
 	},
@@ -127,7 +127,7 @@ export default function SwipeableTemporaryDrawer() {
 						<ListItemIcon className={classes.icons}>
 							<HomeIcon />
 						</ListItemIcon>
-						<ListItemText primary='Places' />
+						<ListItemText primary='Profile' />
 					</ListItem>
 				</Link>
 
@@ -136,11 +136,11 @@ export default function SwipeableTemporaryDrawer() {
 						<ListItemIcon className={classes.icons}>
 							<PersonPinIcon />
 						</ListItemIcon>
-						<ListItemText primary='Topics' />
+						<ListItemText primary='Top Hackers' />
 					</ListItem>
 				</Link>
 
-				<Link to='/setting' className={classes.link}>
+				{/* <Link to='/setting' className={classes.link}>
 					<ListItem button>
 						<ListItemIcon className={classes.icons}>
 							<AdjustIcon />
@@ -183,7 +183,7 @@ export default function SwipeableTemporaryDrawer() {
 						</ListItemIcon>
 						<ListItemText primary='Technology milestones' />
 					</ListItem>
-				</Link>
+				</Link> */}
 
 				<Link to='/profile' className={classes.link}>
 					<ListItem button>
@@ -264,27 +264,29 @@ export default function SwipeableTemporaryDrawer() {
 
 	return (
 		<div className={classes.root}>
-			<AppBar position='static' className={classes.appbar}>
-				<Toolbar variant='dense' className={classes.toolbar}>
-					<IconButton
-						edge='start'
-						className={classes.menuButton}
-						aria-label='menu'
-						onClick={toggleDrawer('left', true)}>
-						<DehazeIcon />
-					</IconButton>
-					<Typography variant='h5' className={classes.heading}>
-						Lak
-					</Typography>
-					<SwipeableDrawer
-						anchor={'left'}
-						open={state['left']}
-						onClose={toggleDrawer('left', false)}
-						onOpen={toggleDrawer('left', true)}>
-						{list('left')}
-					</SwipeableDrawer>
-				</Toolbar>
-			</AppBar>
+			<Hidden only={['md', 'lg', 'xl']}>
+				<AppBar position='static' className={classes.appbar}>
+					<Toolbar variant='dense' className={classes.toolbar}>
+						<IconButton
+							edge='start'
+							className={classes.menuButton}
+							aria-label='menu'
+							onClick={toggleDrawer('left', true)}>
+							<DehazeIcon />
+						</IconButton>
+						<Typography variant='h5' className={classes.heading}>
+							Lak
+						</Typography>
+						<SwipeableDrawer
+							anchor={'left'}
+							open={state['left']}
+							onClose={toggleDrawer('left', false)}
+							onOpen={toggleDrawer('left', true)}>
+							{list('left')}
+						</SwipeableDrawer>
+					</Toolbar>
+				</AppBar>
+			</Hidden>
 		</div>
 	)
 }
