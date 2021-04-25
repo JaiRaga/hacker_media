@@ -9,3 +9,5 @@
 ##### step: 3 git add, git commit -m "message" git push heroku master
 
 ##### step: 4 Add config vars in heroku dashboard
+
+##### Visit app at [Here](https://hackermedia.herokuapp.com/)
