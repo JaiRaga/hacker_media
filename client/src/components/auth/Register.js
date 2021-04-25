@@ -29,14 +29,13 @@ const Login = () => {
 	const dispatch = useDispatch()
 
 	const [registerState, setRegisterState] = useState({
-		username: '',
+		name: '',
 		email: '',
 		password: '',
 		password2: '',
-		handle: '',
 	})
 
-	const { handle, username, email, password, password2 } = registerState
+	const { name, email, password, password2 } = registerState
 
 	const onChange = (e) =>
 		setRegisterState({ ...registerState, [e.target.name]: e.target.value })
@@ -47,7 +46,7 @@ const Login = () => {
 		if (password !== password2) {
 			console.log('Password do not match')
 		} else {
-			dispatch(registerUser({ username, email, handle, password }))
+			dispatch(registerUser({ name, email, password }))
 		}
 	}
 
@@ -78,8 +77,8 @@ const Login = () => {
 						<Grid item>
 							<TextField
 								id='username'
-								name='username'
-								label='Username'
+								name='name'
+								label='name'
 								variant='outlined'
 								onChange={onChange}
 							/>
@@ -89,15 +88,6 @@ const Login = () => {
 								id='email'
 								name='email'
 								label='Email'
-								variant='outlined'
-								onChange={onChange}
-							/>
-						</Grid>
-						<Grid item>
-							<TextField
-								id='handle'
-								name='handle'
-								label='handle'
 								variant='outlined'
 								onChange={onChange}
 							/>

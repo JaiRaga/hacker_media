@@ -13,6 +13,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Home from './components/home/Home'
 import Profile from './components/profile/Profile'
+import About from './components/about/About'
 
 // Redux
 import store from './redux/store'
@@ -45,6 +46,7 @@ function App() {
 					<Switch>
 						<Route exact path='/register' component={Register} />
 						<Route exact path='/Login' component={Login} />
+						<Route exact path='/about' component={About} />
 						<PrivateRoute exact path='/home' component={Home} />
 						<PrivateRoute exact path='/profile/:id' component={Profile} />
 						{/* <PrivateRoute exact path='/profile/:id' component={Profile} /> */}

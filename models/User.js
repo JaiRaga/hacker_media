@@ -18,7 +18,6 @@ const userSchema = new Schema(
 		},
 		location: {
 			type: String,
-			required: true,
 		},
 		education: { type: String },
 		challengesSolved: { type: Number },

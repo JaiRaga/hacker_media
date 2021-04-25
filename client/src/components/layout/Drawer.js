@@ -101,7 +101,7 @@ export default function SwipeableTemporaryDrawer() {
 			</Typography>
 			<Divider />
 			<List className={classes.list} disablePadding>
-				<Link to='/profile' className={classes.link}>
+				<Link to='/' className={classes.link}>
 					<ListItem button>
 						<ListItemIcon className={classes.icons}>
 							<ComputerIcon />
@@ -113,7 +113,7 @@ export default function SwipeableTemporaryDrawer() {
 			</List>
 			<Divider />
 			<List className={classes.right}>
-				<Link to='/dashboard/social' className={classes.link}>
+				<Link to='/home' className={classes.link}>
 					<ListItem button>
 						<ListItemIcon className={classes.icons}>
 							<HomeIcon />
@@ -122,84 +122,12 @@ export default function SwipeableTemporaryDrawer() {
 					</ListItem>
 				</Link>
 
-				<Link to='/dashboard' className={classes.link}>
+				<Link to='/about' className={classes.link}>
 					<ListItem button>
 						<ListItemIcon className={classes.icons}>
 							<HomeIcon />
 						</ListItemIcon>
-						<ListItemText primary='Profile' />
-					</ListItem>
-				</Link>
-
-				<Link to='/profile' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<PersonPinIcon />
-						</ListItemIcon>
-						<ListItemText primary='Top Hackers' />
-					</ListItem>
-				</Link>
-
-				{/* <Link to='/setting' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<AdjustIcon />
-						</ListItemIcon>
-						<ListItemText primary='Inspiration' />
-					</ListItem>
-				</Link>
-
-				<Link to='/dashboard' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<HomeIcon />
-						</ListItemIcon>
-						<ListItemText primary='Goals' />
-					</ListItem>
-				</Link>
-
-				<Link to='/profile' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<PersonPinIcon />
-						</ListItemIcon>
-						<ListItemText primary='Ad Customisation' />
-					</ListItem>
-				</Link>
-
-				<Link to='/setting' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<AdjustIcon />
-						</ListItemIcon>
-						<ListItemText primary='People' />
-					</ListItem>
-				</Link>
-
-				<Link to='/dashboard' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<HomeIcon />
-						</ListItemIcon>
-						<ListItemText primary='Technology milestones' />
-					</ListItem>
-				</Link> */}
-
-				<Link to='/profile' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<PersonPinIcon />
-						</ListItemIcon>
-						<ListItemText primary='Setting' />
-					</ListItem>
-				</Link>
-
-				<Link to='/setting' className={classes.link}>
-					<ListItem button>
-						<ListItemIcon className={classes.icons}>
-							<AdjustIcon />
-						</ListItemIcon>
-						<ListItemText primary='Post Content' />
+						<ListItemText primary='About' />
 					</ListItem>
 				</Link>
 
@@ -218,7 +146,7 @@ export default function SwipeableTemporaryDrawer() {
 	const guestLinks = (
 		<Fragment>
 			<List className={classes.list}>
-				<Link to='/dashboard' className={classes.link}>
+				<Link to='/' className={classes.link}>
 					<ListItem button>
 						<ListItemIcon className={classes.icons}>
 							<ComputerIcon />

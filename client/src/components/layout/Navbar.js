@@ -9,9 +9,10 @@ import {
 	Button,
 } from '@material-ui/core'
 import { useHistory } from 'react-router'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import DomainIcon from '@material-ui/icons/Domain'
 import Drawer from './Drawer'
+import { logout } from '../../redux/actions/auth'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -41,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
 	const classes = useStyles()
 	const history = useHistory()
+	const dispatch = useDispatch()
 	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
 	const [toggleSidebar, setToggleSidebar] = useState(false)
 
@@ -64,11 +66,11 @@ const Navbar = () => {
 			<Button className={classes.btn} onClick={() => history.push('/home')}>
 				Home
 			</Button>
-			<Button className={classes.btn} onClick={() => history.push('/setting')}>
-				Setting
-			</Button>
 			<Button className={classes.btn} onClick={() => history.push('/about')}>
 				About
+			</Button>
+			<Button className={classes.btn} onClick={() => dispatch(logout())}>
+				Logout
 			</Button>
 			{/* <Button className={classes.btn}>Suggestions</Button> */}
 		</div>
