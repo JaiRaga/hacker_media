@@ -89,7 +89,7 @@ router.get('/user/:id', auth, async (req, res) => {
 // Get all Users
 router.get('/users', async (req, res) => {
 	try {
-		const users = await User.find({})
+		const users = await User.find({}).sort({ name: 1 })
 		if (!users) return res.status(404).send('No Users Found')
 		res.send(users)
 	} catch (err) {
