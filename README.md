@@ -1,6 +1,6 @@
 ## Hobby Project for Hacker earth
 
-### Deployment
+### Deployment Instruction
 
 ##### step: 1 Heroku login
 
